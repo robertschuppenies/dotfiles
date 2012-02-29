@@ -49,6 +49,6 @@ alias ..='cd ..'
 PATH=$PATH:$HOME/bin:/usr/local/symlinks:
 
 
-if [ -e .bashrc_local ]; then
-  source .bashrc_local
+if [ -e ~/.bashrc_local ]; then
+  source ~/.bashrc_local
 fi
