@@ -37,7 +37,7 @@
 
 ; make all backups in a single directory
 (setq backup-directory-alist
-      `(("." . ,(expand-file-name "~/.emacs.d/backups"))))
+      `(("." . ,(expand-file-name "~/.emacs-backups"))))
 
 ;; show trailing whitespaces
 (setq-default show-trailing-whitespace t)
@@ -93,9 +93,6 @@
 (load-library "~/.emacs.d/elisp/vc-git.el")
 (add-to-list 'vc-handled-backends 'GIT)
 
-(load-library "/usr/share/doc/git-core/contrib/emacs/git.el")
-(load-library "/usr/share/doc/git-core/contrib/emacs/git-blame.el")
-
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -103,6 +100,7 @@
   ;; If there is more than one, they won't work right.
  '(js2-basic-offset 2)
  '(js2-cleanup-whitespace t)
+ '(safe-local-variable-values (quote ((python-indent . 2) (css-indent-offset . 2) (show-trailing-whitespace . t) (require-final-newline . t))))
  '(vc-follow-symlinks t))
  ;; If not already done
 
@@ -167,6 +165,12 @@
 
 (load "soy-mode")
 
+
+;; Processing
+;; ==========
+
+(autoload 'processing-mode "processing-mode" "Processing mode" t)
+(add-to-list 'auto-mode-alist '("\\.pde$" . processing-mode))
 
 ;; Python
 ;; ======
